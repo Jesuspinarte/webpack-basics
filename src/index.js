@@ -4,19 +4,19 @@ module.exports = [
   new HtmlWebpackPlugin({
     inject: 'body',
     chunks: ['about'],
-    filename: 'about/index.html',
+    filename: 'about.html',
     template: 'src/pages/about.html',
   }),
   new HtmlWebpackPlugin({
     inject: 'body',
     chunks: ['contact'],
-    filename: 'contact/index.html',
+    filename: 'contact.html',
     template: 'src/pages/contact.html',
   }),
   new HtmlWebpackPlugin({
     inject: 'body',
     chunks: ['home'],
     filename: 'index.html',
-    template: 'src/pages/home.html',
+    template: 'src/pages/index.html',
   }),
 ];
