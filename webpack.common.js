@@ -1,6 +1,5 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const pages = require('./src/index');
+const Handlebars = require('handlebars');
 
 module.exports = {
   entry: {
@@ -8,20 +7,11 @@ module.exports = {
     contact: './src/js/contact.js',
     about: './src/js/about.js',
   },
-  plugins: [
-    new MiniCssExtractPlugin({ filename: '[name]/[name].[contenthash].css' }),
-    new CleanWebpackPlugin(),
-    ...pages
-  ],
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.html$/i,
-        use: ['html-loader'],
       },
       {
         test: /\.(svg|png|jpe?g|gif)$/i,
@@ -30,6 +20,22 @@ module.exports = {
           outputPath: 'img',
           name: '[name].[hash].[ext]',
           publicPath: './img/',
+        },
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        options: {
+          preprocessor: (content, loaderContext) => {
+            try {
+              return Handlebars.compile(content)({
+                web_page_title: 'Custom Web',
+              });
+            } catch (error) {
+              loaderContext.emitError(error);
+              return content;
+            }
+          },
         },
       },
     ],
