@@ -9,7 +9,7 @@ module.exports = {
     about: './src/js/about.js',
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new MiniCssExtractPlugin({ filename: '[name]/[name].[contenthash].css' }),
     new CleanWebpackPlugin(),
     ...pages
   ],
