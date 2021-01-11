@@ -2,7 +2,7 @@
 
 This project will set you an environment project to develop static websites. The idea is that you can develop with JS, SCSS/SASS/CSS, and HTML locally, serve it on a localhost to then minify your code, and upload it to a web host for static websites.
 
-> If you want to see the **demo** website of this repository go to [Webpack static website](https://webpack-static-test.web.app/)
+> If you want to see the **demo** website of this repository go to <a href="https://webpack-static-test.web.app/" target="_blank">Webpack static website</a>
 
 To use it you can run `npm i` or `yarn` to install all the needed dependencies.
 
