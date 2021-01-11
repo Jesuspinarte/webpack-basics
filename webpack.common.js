@@ -3,9 +3,9 @@ const Handlebars = require('handlebars');
 
 module.exports = {
   entry: {
-    home: './src/js/home.js',
-    contact: './src/js/contact.js',
-    about: './src/js/about.js',
+    home: './src/js/pages/home.js',
+    contact: './src/js/pages/contact.js',
+    about: './src/js/pages/about.js',
   },
   module: {
     rules: [
