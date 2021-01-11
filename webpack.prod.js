@@ -9,11 +9,11 @@ const pages = require('./src/index');
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    filename: '[name]/[name].[contenthash].bundle.js',
+    filename: 'js/[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'dist/public'),
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name]/[name].[contenthash].css' }),
+    new MiniCssExtractPlugin({ filename: 'css/[name].[contenthash].css' }),
     new CleanWebpackPlugin(),
     ...pages,
   ],
