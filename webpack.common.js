@@ -1,14 +1,23 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const pages = require('./src/index');
+
 module.exports = {
   entry: {
-    main: './src/index.js',
-    vendor: './src/vendor.js',
-    test: './src/test.js',
+    home: './src/js/home.js',
+    contact: './src/js/contact.js',
+    about: './src/js/about.js',
   },
+  plugins: [
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new CleanWebpackPlugin(),
+    ...pages
+  ],
   module: {
     rules: [
       {
-        test: /\.html$/i,
-        use: ['html-loader'],
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(svg|png|jpe?g|gif)$/i,
